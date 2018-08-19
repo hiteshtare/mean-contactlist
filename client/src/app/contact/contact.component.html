@@ -1,0 +1,39 @@
+<div class="container">
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-md-3">
+      <input type="text" [(ngModel)]="first_name" placeholder="First Name">
+    </div>
+    <div class="col-md-3">
+      <input type="text" [(ngModel)]="last_name" placeholder="Last Name">
+    </div>
+    <div class="col-md-3">
+      <input type="text" [(ngModel)]="phone_no" placeholder="Phone No">
+    </div>
+    <div class="col-md-3">
+      <input type="button" class="btn btn-success" value="Add" (click)="addContact()">
+      <input type="button" class="btn btn-secondary" value="Clear" (click)="clearInputFields()">
+    </div>
+  </div>
+  <br>
+  <br>
+  <div *ngFor="let contact of contacts">
+    <div class="row">
+      <div class="col-md-3">
+        {{contact.first_name}}
+      </div>
+      <div class="col-md-3">
+        {{contact.last_name}}
+      </div>
+      <div class="col-md-3">
+        {{contact.phone_no}}
+      </div>
+      <div class="col-md-3">
+        <input type="button" class="btn btn-danger" value="Delete" (click)="deleteContact(contact._id)">
+      </div>
+      <br>
+      <br>
+    </div>
+  </div>
+</div>

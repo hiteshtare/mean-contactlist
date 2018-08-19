@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var cors = require('cors');
 var bodyparser = require('body-parser');
 var path = require('path'); //core module
+var logger = require('morgan');
 
 var app = express();
 
@@ -27,6 +28,9 @@ mongoose.connection.on('error', (err) => {
     console.log(`Error occurred while making Db Connection ${err}`);
   }
 });
+
+//Adding logging using morgan
+app.use(logger('dev'));
 
 //Adding middleware - cors
 app.use(cors());
